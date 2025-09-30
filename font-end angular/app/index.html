@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="clienteCrud">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud clientes</title>
+
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+
+    <script src="lib/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/clienteController.js"></script>
+    <script src="js/services/clienteApiService.js"></script>
+    <script src="js/value/configValue.js"></script>
+
+</head>
+<body>
+    <div class="jumbotron" ng-controller="clienteController">
+        
+        <button class="btn btn-primary" ng-click="showClientsTable('show')">{{clientTbMessage}}</button>
+        <div ng-show="showClients">
+            <h3>Lista de Clientes</h3>
+            <table class="table table-striped">
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>email</th>
+                    <th>phoneNumber</th>
+                </tr>
+                <tr ng-repeat="cliente in listaClientes">
+                    <td><a ng-model="cliente" ng-click="deletarCliente(cliente)"><i class="bi bi-trash"></a></i></td>
+                    <td><a ng-model="cliente" ng-click="editarCliente(cliente)"><i class="bi bi-pencil"></i></a></td>
+                    <td>{{cliente.id}}</td>
+                    <td>{{cliente.name}}</td>
+                    <td>{{cliente.email}}</td>
+                    <td>{{cliente.phoneNumber}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <hr/>
+
+         <!-- Formulário de edição inline -->
+        <div ng-show="clienteSelecionado">
+            <h3>Editar Cliente</h3>
+            <form>
+                <label>Nome</label>
+                <input class="form-control" type="text" ng-model="clienteSelecionado.name">
+                <label>Email</label>
+                <input class="form-control" type="text" ng-model="clienteSelecionado.email">
+                <label>Telefone</label>
+                <input class="form-control" type="text" ng-model="clienteSelecionado.phoneNumber">
+
+                <button class="btn btn-primary mt-2" ng-click="salvarEdicao()">Salvar</button>
+                <button class="btn btn-danger mt-2" ng-click="cancelarEdicao()">Cancelar</button>
+            </form>
+        </div>
+
+        <hr/>
+        <div ng-hide="clienteSelecionado">
+            <h3>Registrar Cliente</h3>
+            <form name="clienteForm">
+                <label for="name">Nome</label>
+                <input class="form-control" name="name" type="text" ng-model="cliente.name">
+                <label for="name">Email</label>
+                <input class="form-control" type="text" ng-model="cliente.email">
+                <label for="name">PhoneNumber</label>
+                <input class="form-control" type="text" ng-model="cliente.phoneNumber">
+                <label for="name">Password</label>
+                <input class="form-control" type="password" ng-model="cliente.password">
+            </form>
+            <button class="btn btn-success btn-block" ng-click="adcionarCliente(cliente)">Registrar</button>
+        </div>
+        
+
+        
+    </div>
+</body>
+</html>

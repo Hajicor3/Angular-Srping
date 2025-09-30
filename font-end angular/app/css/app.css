@@ -1,0 +1,32 @@
+.jumbotron{
+    width: 1500px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.jumbotron h3{
+    text-align: center;
+}
+.table{
+    margin-top: 20px;
+    font-size: medium;
+}
+th, td{
+    text-align: center;
+}
+.form-control{
+    margin-bottom: 5px;
+}
+.selecionado{
+    background-color: yellow;
+}
+.negrito{
+    font-weight: bold;
+}
+
+label{
+    text-align: left;
+}
+i{
+    cursor: pointer;
+}

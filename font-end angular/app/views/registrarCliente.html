@@ -1,0 +1,48 @@
+<div class="jumbotron" ng-controller="clienteController">
+    <a class="btn btn-primary" href="#!/clientes">Voltar</a>
+    <h3>Registrar Cliente</h3>
+    <form name="clienteForm">
+        <label for="name">Nome</label>
+        <input class="form-control" name="name" type="text" ng-model="cliente.name" ng-required="true" ng-minlength="3">
+        <label for="name">Email</label>
+        <input class="form-control" name="email" type="text" ng-model="cliente.email" ng-required="true" ng-pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/">
+        <label for="name">Telefone</label>
+        <input class="form-control" name="phoneNumber" type="text" ng-model="cliente.phoneNumber" ng-required="true" ng-pattern="/^\(\d{2}\)\s?\d{4,5}-\d{4}$/"  ui-phone>
+        <label for="name">Senha</label>
+        <input class="form-control" name="password" type="password" ng-model="cliente.password" ng-required="true" ng-minlength="6">
+    </form>
+
+    <div ng-if="clienteForm.name.$dirty" ng-messages="clienteForm.name.$error">
+        <div ng-message="required" class="alert alert-danger">
+            por favor, Preencha o nome!
+        </div>
+        <div ng-message="minlength" class="alert alert-danger">
+            O nome deve ter pelo menos 5 caracteres!
+        </div>
+    </div>
+    <div ng-if="clienteForm.email.$dirty" ng-messages="clienteForm.email.$error">
+        <div ng-message="required" class="alert alert-danger">
+            por favor, Preencha o email!
+        </div>
+        <div ng-message="pattern" class="alert alert-danger">
+            O email deve ser válido! EX: exemple@gmail.com!
+        </div>
+    </div>
+    <div ng-if="clienteForm.phoneNumber.$dirty" ng-messages="clienteForm.phoneNumber.$error">
+        <div ng-message="required" class="alert alert-danger">
+            por favor, Preencha o Telefone!
+        </div>
+        <div ng-message="pattern" class="alert alert-danger">
+            Você deve inserir um telefone válido!! EX: (99) 99999-9999 ou (99) 9999-9999
+        </div>
+    </div>
+    <div ng-if="clienteForm.password.$dirty" ng-messages="clienteForm.password.$error">
+        <div ng-message="required" class="alert alert-danger">
+            por favor, Preencha a senha!
+        </div>
+        <div ng-message="minlength" class="alert alert-danger">
+            O nome deve ter pelo menos 5 caracteres!
+        </div>
+    </div>
+    <button class="btn btn-success btn-block" ng-click="adcionarCliente(cliente)" ng-disabled="clienteForm.$invalid">Registrar</button>
+</div>

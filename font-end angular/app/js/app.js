@@ -1,1 +1,1 @@
-angular.module("clienteCrud",[])
+angular.module("clienteCrud",["ngMessages", "ngRoute"])

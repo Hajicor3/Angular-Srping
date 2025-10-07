@@ -1,0 +1,23 @@
+<div class="jumbotron">
+    <h3>Lista de Clientes</h3>
+    <!--<div ui-Alert title="Ops, Ocorreu um erro!" message="Não foi possível carregar os clientes!" ng-hide="err"></div>-->
+    <table class="table table-striped">
+        <tr>
+            <th></th>
+            <th></th>
+            <th>id</th>
+            <th>name</th>
+            <th>email</th>
+            <th>phoneNumber</th>
+        </tr>
+        <tr ng-repeat="cliente in listaClientes">
+            <td><a ng-model="cliente" ng-click="deletarCliente(cliente)"><i class="bi bi-trash"> Deletar</a></i></td>
+            <td><a  href="#!/cliente/{{cliente.id}}" ng-model="cliente"><i class="bi bi-pencil"> Editar</i></a></td>
+            <td>{{cliente.id}}</td>
+            <td>{{cliente.name}}</td>
+            <td>{{cliente.email}}</td>
+            <td>{{cliente.phoneNumber}}</td>
+        </tr>
+    </table>
+    <a class="btn btn-success btn-block" href="#!/registrar-cliente">Adicionar Cliente</a>
+</div>

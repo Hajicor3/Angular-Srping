@@ -14,6 +14,15 @@
 th, td{
     text-align: center;
 }
+hr{
+    border-color: #999;
+}
+label{
+    text-align: left;
+}
+i{
+    cursor: pointer;
+}
 .form-control{
     margin-bottom: 5px;
 }
@@ -23,10 +32,20 @@ th, td{
 .negrito{
     font-weight: bold;
 }
-
-label{
-    text-align: left;
+.ui-alert {
+	background-color: #F2DEDE;
+	padding: 20px;
+	border-radius: 5px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
-i{
-    cursor: pointer;
+
+.ui-alert-title {
+	color: #AF4341;
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.ui-alert-message {
+	color: #AF4341;
 }

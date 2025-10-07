@@ -17,10 +17,10 @@ public class TestConfiguration implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        var c1 = new Client("Gabriel", "gabriel@gmail.com","123456789","9999-9999");
-        var c2 = new Client("joao", "joao@gmail.com","123456789","9999-9999");
-        var c3 = new Client("Joana", "joana@gmail.com","123456789","9999-9999");
-        var c4 = new Client("Bernardo", "bernardo@gmail.com","123456789","9999-9999");
+        var c1 = new Client("Gabriel", "gabriel@gmail.com","123456789","(99) 99999-9999");
+        var c2 = new Client("joao", "joao@gmail.com","123456789","(99) 99999-9999");
+        var c3 = new Client("Joana", "joana@gmail.com","123456789","(99) 99999-9999");
+        var c4 = new Client("Bernardo", "bernardo@gmail.com","123456789","(99) 99999-9999");
 
 
 

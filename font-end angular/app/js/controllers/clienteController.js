@@ -1,11 +1,22 @@
-angular.module("clienteCrud").controller("clienteController", function($scope, clienteService){
+angular.module("clienteCrud").controller("clienteController", function($scope, clienteService, $routeParams, $location){
 
     $scope.listaClientes = [];
-    $scope.clientTbMessage = "Mostrar Clientes"
+    $scope.cliente = {};
+    $scope.editButtonTxt = "Editar"
+    $scope.VouF = true;
 
     var loadClients = function(){
         clienteService.getClients()
         .then(data => $scope.listaClientes = data.data)
+        .catch(err => console.log(err))
+    }
+
+    var loadClientePorId = function(){
+        clienteService.getClient($routeParams.id)
+        .then(data => {
+            $scope.cliente = data.data
+            $scope.clienteSelecionado = angular.copy($scope.cliente)
+        })
         .catch(err => console.log(err))
     }
 
@@ -14,40 +25,38 @@ angular.module("clienteCrud").controller("clienteController", function($scope, c
         .then(data => {
             loadClients();
             delete $scope.cliente
+            $location.path("/clientes");
         })
-        .catch(err => console.log(err))
+        .catch(err => $scope.err = true)
     }
 
     $scope.deletarCliente = function(cliente){
         clienteService.deleteClient(cliente.id)
         .then(data => {
             loadClients();
+            $location.path("/clientes");
         })
         .catch(err => console.log(err))
     }
-    
-    $scope.editarCliente = function(cliente) {
-        $scope.clienteSelecionado = angular.copy(cliente);
-    }
 
     $scope.salvarEdicao = function() {
-        clienteService.updateClient($scope.clienteSelecionado.id, $scope.clienteSelecionado)
+        clienteService.updateClient($scope.cliente.id, $scope.clienteSelecionado)
         .then(data => {
-            loadClients();
-            $scope.clienteSelecionado = null;
+            $location.path("/clientes");
+            $scope.cliente = null;
         })
     }
 
-    $scope.cancelarEdicao = function(){
-        $scope.clienteSelecionado = null;
-    }
-
-    $scope.showClientsTable = function(show){
-        console.log($scope.showClients)
-        $scope.showClients = !$scope.showClients
-        $scope.clientTbMessage = $scope.showClients ? "Fechar" : "Mostrar Clientes";
+    $scope.editCliente = function(){
+        console.log($scope.editingCliente)
+        $scope.editingCliente = !$scope.editingCliente
+        $scope.editButtonTxt = $scope.editingCliente ? "Cancelar Edição" : "Editar"
+        $scope.clienteSelecionado = angular.copy($scope.cliente)
     }
 
     loadClients();
+    if($routeParams.id != undefined){
+        loadClientePorId();
+    }
 
 })

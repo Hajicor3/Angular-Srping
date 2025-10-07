@@ -1,15 +1,18 @@
 <div class="jumbotron" ng-controller="clienteController">
-    <a class="btn btn-primary" href="#!/clientes">Voltar</a>
+    <a class="btn btn-primary" href="#!/clientes"><i class="bi bi-arrow-left"></i> Voltar</a>
     <h3>Registrar Cliente</h3>
     <form name="clienteForm">
-        <label for="name">Nome</label>
-        <input class="form-control" name="name" type="text" ng-model="cliente.name" ng-required="true" ng-minlength="3">
-        <label for="name">Email</label>
-        <input class="form-control" name="email" type="text" ng-model="cliente.email" ng-required="true" ng-pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/">
-        <label for="name">Telefone</label>
-        <input class="form-control" name="phoneNumber" type="text" ng-model="cliente.phoneNumber" ng-required="true" ng-pattern="/^\(\d{2}\)\s?\d{4,5}-\d{4}$/"  ui-phone>
-        <label for="name">Senha</label>
-        <input class="form-control" name="password" type="password" ng-model="cliente.password" ng-required="true" ng-minlength="6">
+        <fieldset>
+            <legend>Informações</legend>
+            <label for="name">Nome</label>
+            <input class="form-control" name="name" type="text" ng-model="cliente.name" ng-required="true" ng-minlength="3">
+            <label for="email">Email</label>
+            <input class="form-control" name="email" type="text" ng-model="cliente.email" ng-required="true" ng-pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/">
+            <label for="phoneNumber">Telefone</label>
+            <input class="form-control" name="phoneNumber" type="text" ng-model="cliente.phoneNumber" ng-required="true" ng-pattern="/^\(\d{2}\)\s?\d{4,5}-\d{4}$/" ui-phone>
+            <label for="password">Senha</label>
+            <input class="form-control" name="password" type="password" ng-model="cliente.password" ng-required="true" ng-minlength="6">
+        </fieldset>
     </form>
 
     <div ng-if="clienteForm.name.$dirty" ng-messages="clienteForm.name.$error">
@@ -44,5 +47,7 @@
             O nome deve ter pelo menos 5 caracteres!
         </div>
     </div>
-    <button class="btn btn-success btn-block" ng-click="adcionarCliente(cliente)" ng-disabled="clienteForm.$invalid">Registrar</button>
+    <button class="btn btn-success btn-block" ng-click="adcionarCliente(cliente)" ng-disabled="clienteForm.$invalid">
+        <i class="bi bi-person-plus"></i> Registrar
+    </button>
 </div>

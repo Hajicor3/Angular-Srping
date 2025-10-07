@@ -1,51 +1,243 @@
-.jumbotron{
-    width: 1500px;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
+.jumbotron {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 30px 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
 }
-.jumbotron h3{
+
+.jumbotron h3 {
     text-align: center;
+    margin-bottom: 25px;
+    font-size: 3rem;
+    color: #2c3e50;
 }
-.table{
-    margin-top: 20px;
-    font-size: medium;
+
+/* ====== Layout principal ====== */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 16px;
 }
-th, td{
-    text-align: center;
+
+/* ====== Card de clientes ====== */
+.card-clientes {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(44, 62, 80, 0.08);
+  padding: 32px 24px;
+  margin-bottom: 32px;
 }
-hr{
-    border-color: #999;
+
+.card-clientes__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
 }
-label{
+
+.card-clientes__titulo {
+  font-size: 2.2rem;
+  color: #2c3e50;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ====== Tabela ====== */
+.table {
+  width: 100%;
+  margin-top: 0;
+  font-size: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.04);
+}
+
+.table thead th {
+  background: #e9ecef;
+  font-weight: 600;
+  color: #34495e;
+  border-bottom: 2px solid #dee2e6;
+  text-align: left;
+  padding: 14px 12px;
+}
+
+.table tbody td {
+  color: #555;
+  padding: 12px 12px;
+  vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #eaf6ff;
+  transition: background 0.2s;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+th, td {
     text-align: left;
+    padding: 12px 16px;
 }
-i{
-    cursor: pointer;
+
+th {
+    background: #e9ecef;
+    font-weight: bold;
+    color: #34495e;
 }
-.form-control{
-    margin-bottom: 5px;
+
+td {
+    color: #555;
 }
-.selecionado{
-    background-color: yellow;
+
+hr {
+    border-color: #999;
+    margin: 24px 0;
 }
-.negrito{
+
+label {
+    text-align: left;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #34495e;
+}
+
+.form-control {
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.btn {
+  border-radius: 6px;
+  font-size: 1.5rem;
+  padding: 8px 18px;
+  margin: 0 2px;
+  margin-bottom: 10px;
+  transition: background 0.2s, box-shadow 0.2s;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.btn-sm {
+  font-size: 1rem;
+  padding: 6px 12px;
+}
+
+.btn-primary {
+    background: #007bff;
+    border: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: #0056b3;
+}
+
+.btn-danger {
+    background: #dc3545;
+    border: none;
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+  background: #c82333;
+}
+
+.btn-success {
+    background: #28a745;
+    border: none;
+}
+
+.selecionado {
+    background-color: #ffe066;
+}
+
+.negrito {
     font-weight: bold;
 }
+
 .ui-alert {
-	background-color: #F2DEDE;
-	padding: 20px;
-	border-radius: 5px;
-	margin-top: 20px;
-	margin-bottom: 20px;
+    background-color: #F2DEDE;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-left: 6px solid #AF4341;
 }
 
 .ui-alert-title {
-	color: #AF4341;
-	font-weight: bold;
-	font-size: 24px;
+    color: #AF4341;
+    font-weight: bold;
+    font-size: 24px;
 }
 
 .ui-alert-message {
-	color: #AF4341;
+    color: #AF4341;
+}
+
+.alert-danger {
+    background: #f8d7da;
+    color: #721c24;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-left: 4px solid #dc3545;
+}
+
+/* ====== Responsividade ====== */
+@media (max-width: 600px) {
+  .card-clientes {
+    padding: 16px 6px;
+  }
+  .card-clientes__header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+  .card-clientes__titulo {
+    font-size: 1.4rem;
+  }
+  .table thead, .table tbody, .table th, .table td, .table tr {
+    display: block;
+  }
+  .table thead {
+    display: none;
+  }
+  .table tbody tr {
+    margin-bottom: 18px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(44,62,80,0.04);
+    padding: 10px;
+  }
+  .table tbody td {
+    padding: 8px 0;
+    border: none;
+    position: relative;
+  }
+  .table tbody td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #34495e;
+    display: block;
+    margin-bottom: 2px;
+  }
 }

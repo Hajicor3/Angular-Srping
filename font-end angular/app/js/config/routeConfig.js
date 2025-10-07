@@ -2,7 +2,7 @@ angular.module("clienteCrud").config(function($routeProvider){
 
     $routeProvider.when("/clientes", {
         templateUrl: "views/clientes.html",
-        controller: "clienteController"
+        controller: "clienteController",
     });
 
     $routeProvider.when("/cliente/:id", {
